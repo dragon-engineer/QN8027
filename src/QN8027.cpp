@@ -93,6 +93,7 @@ void QN8027::begin(float fmFreq)
 	_setFrequency(freqChannel);
 }
 
+#if (defined(ESP32) || defined(ESP8266))
 void QN8027::begin(uint8_t sda, uint8_t scl)
 {
 	Wire.begin(sda, scl);
@@ -118,6 +119,7 @@ void QN8027::begin(uint8_t sda, uint8_t scl, float i2cFreq, float fmFreq)
 	enable(true);
 
 }
+#endif
 
 void QN8027::setTxPower(uint8_t pwr) // 20 - 75
 {
